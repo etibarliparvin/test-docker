@@ -2,7 +2,7 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driverClassName: com.mysql.jdbc.Driver
-    url: &connectionUrl jdbc:mysql://${DB_CONNECTION_IP:localhost}:${DB_CONNECTION_PORT:3306}/test-docker?createDatabaseIfNotExists=true
+    url: jdbc:mysql://localhost:3306/testdocker?createDatabaseIfNotExists=true
     username: root
     password: 112358
   jpa:
