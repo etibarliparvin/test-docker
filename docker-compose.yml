@@ -1,0 +1,28 @@
+version: '3.3'
+services:
+  mysql:
+    hostname: mysql-hostname
+    image: mysql
+    volumes:
+      - /my/custom:/etc/mysql/conf.d
+    environment:
+      MYSQL_ROOT_PASSWORD: 112358
+    ports:
+      - '3306:3306'
+    networks:
+      - mynetwork
+
+  test-docker:
+    image: test-docker:v3
+    restart: always
+    ports:
+      - '8080:8080'
+    environment:
+      DB_CONNECTION_IP: "mysql-hostname"
+    depends_on:
+      - mysql
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
